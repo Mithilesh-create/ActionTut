@@ -16,22 +16,20 @@ jobs:
 
       - name: Lint Code Base
         uses: github/super-linter@v4
-        -       # TODO: Install your linters here
-+       - name: Set up Python
-+         uses: actions/setup-python@v1
-+         with:
-+           python-version: 3.8
-+
-+       - name: Install Python dependencies
-+         run: pip install black flake8
+        - name: Set up Python
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.8
+ 
+        - name: Install Python dependencies
+          run: pip install black flake8
 
         - name: Run linters
           uses: samuelmeuli/lint-action@v1
           with:
             github_token: ${{ secrets.github_token }}
--           # TODO: Enable your linters here
-+           black: true
-+           flake8: true
+            black: true
+            flake8: true
         env:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVASCRIPT_ES: true
